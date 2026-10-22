@@ -1,0 +1,71 @@
+    
+{% extends "base.html" %}
+
+{% block title %}Inicio | AI Footprint{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <span class="etiqueta">IA Y MEDIO AMBIENTE</span>
+    <h1>Descubre la huella ambiental de la inteligencia artificial</h1>
+    <p>
+        Explora modelos, tecnologias e impactos ambientales
+        para comprender mejor el coste de la IA.
+    </p>
+    <a href="{% url 'lista_modelos' %}" class="boton">
+        Explorar modelos →
+    </a>
+</section>
+
+<section>
+    <h2>Modelos destacados por categoria</h2>
+    <p class="texto-secundario">
+        Una seleccion representativa de cada tipo de modelo.
+    </p>
+
+    <div class="grid">
+        {% for modelo in modelos_destacados %}
+            <article class="tarjeta">
+                <span class="etiqueta">
+                    {{ modelo.tipo.nombre }}
+                </span>
+
+                <h3>{{ modelo.nombre }}</h3>
+                <p>{{ modelo.desarrollador }}</p>
+                <p>{{ modelo.descripcion|truncatewords:20 }}</p>
+
+                <a href="{% url 'detalle_modelo' modelo.pk %}">
+                    Ver detalles →
+                </a>
+            </article>
+        {% empty %}
+            <p>
+                Todavia no hay modelos registrados.
+                Puedes añadirlos desde el panel de administracion.
+            </p>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+    <h2>¿Que impactos estudiamos?</h2>
+
+    <div class="grid">
+        {% for impacto in impactos %}
+            <article class="tarjeta">
+                <h3>{{ impacto.nombre }}</h3>
+                <p>{{ impacto.descripcion|truncatewords:18 }}</p>
+                <a href="{% url 'detalle_impacto' impacto.pk %}">
+                    Explorar impacto ->
+                </a>
+            </article>
+        {% empty %}
+            <p>
+                Todavia no hay impactos registrados.
+                Puedes añadirlos desde el panel de administracion.
+            </p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
