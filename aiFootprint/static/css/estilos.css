@@ -39,14 +39,26 @@ a {
 }
 
 .logo {
-    font-size: 1.4rem;
-    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 
-.logo-icono {
-    color: #b8e4b0;
-    margin-right: 8px;
+.logo-imagen {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
+
+img.imagen-modelo {
+    display: block;
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+    border-radius: 12px;
+    }
 
 .navegacion {
     display: flex;
@@ -96,6 +108,28 @@ a {
     border-radius: 8px;
     font-weight: bold;
     margin-top: 10px;
+}
+
+.boton-alt {
+    display: inline-block;
+    padding: 11px 18px;
+    background: transparent;
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    border: 2px solid #527c70;
+
+}
+
+.boton-alt:hover {
+    background: #244b40;
+    border-color: #8bb5a5;
+}
+
+.boton-alt:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
 }
 
 .grid {

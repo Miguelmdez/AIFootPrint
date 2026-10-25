@@ -1,6 +1,6 @@
     
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Inicio | AI Footprint{% endblock %}
 
 {% block content %}
@@ -15,6 +15,10 @@
     <a href="{% url 'lista_modelos' %}" class="boton">
         Explorar modelos →
     </a>
+
+    <a href="{% url 'lista_impactos' %}" class="boton-alt">
+        Ver impactos →
+    </a>
 </section>
 
 <section>
@@ -26,6 +30,12 @@
     <div class="grid">
         {% for modelo in modelos_destacados %}
             <article class="tarjeta">
+                <img
+                src="{% static 'images/' %}{{ modelo.nombre }}.png"
+                alt="Imagen de {{ modelo.nombre }}"
+                class="imagen-modelo"
+                >
+
                 <span class="etiqueta">
                     {{ modelo.tipo.nombre }}
                 </span>

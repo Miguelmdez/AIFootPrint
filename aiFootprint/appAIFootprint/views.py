@@ -90,13 +90,21 @@ def show_impacto(request, impacto_id):
 
 # Devuelve la portada de AI Footprint
 def index(request):
-    modelos = ModeloIA.objects.order_by('nombre')
+    tipos = TipoModelo.objects.order_by('nombre')
+
+    modelos_destacados = []
+
+    for tipo in tipos:
+        modelo = tipo.modelos.order_by('nombre').first()
+
+        if modelo:
+            modelos_destacados.append(modelo)
+
     impactos = ImpactoAmbiental.objects.order_by('nombre')
 
-# Muestra como mucho 6 elementos de cada
     context = {
-        'modelos_destacados': modelos[:6], 
-        'impactos': impactos[:6],
+        'modelos_destacados': modelos_destacados,
+        'impactos': impactos[:3], # Muestra un maximo de 3 impactos
     }
 
     return render(request, 'index.html', context)
