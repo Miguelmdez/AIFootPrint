@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ tipo.nombre }} | AI Footprint{% endblock %}
+
+{% block content %}
+<section class="tarjeta">
+    <h1>{{ tipo.nombre }}</h1>
+    <p>{{ tipo.descripcion }}</p>
+
+    <h2>Modelos asociados</h2>
+    {% if modelos %}
+        <div class="grid">
+            {% for modelo in modelos %}
+                <article class="tarjeta">
+                    <h3>{{ modelo.nombre }}</h3>
+                    <p><strong>Desarrollador:</strong> {{ modelo.desarrollador }}</p>
+                    <p>{{ modelo.descripcion|truncatewords:24 }}</p>
+                    <a href="{% url 'detalle_modelo' modelo.pk %}">
+                        Ver detalles →
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Este tipo todavía no tiene modelos asociados.</p>
+    {% endif %}
+
+    <p>
+        <a href="{% url 'lista_tipos' %}">← Volver a los tipos de modelo</a>
+    </p>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Tipos de modelo | AI Footprint{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Tipos de modelo</h1>
+    <p class="texto-secundario">
+        Explora las categorías de inteligencia artificial y los modelos asociados.
+    </p>
+
+    <div class="grid">
+        {% for tipo in lista_tipos %}
+            <article class="tarjeta">
+                <h3>{{ tipo.nombre }}</h3>
+                <p>{{ tipo.descripcion|truncatewords:24 }}</p>
+                <p><strong>Modelos asociados:</strong> {{ tipo.modelos.count }}</p>
+                <a href="{% url 'detalle_tipo' tipo.pk %}">
+                    Ver detalles →
+                </a>
+            </article>
+        {% empty %}
+            <p>Todavía no hay tipos de modelo registrados.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

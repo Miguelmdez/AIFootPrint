@@ -32,9 +32,7 @@ def show_modelo(request, modelo_id):
 
 # Devuelve el listado de tipos de modelo
 def index_tipos(request):
-    tipos = get_list_or_404(
-        TipoModelo.objects.order_by('nombre')
-    )
+    tipos = TipoModelo.objects.order_by('nombre')
 
     context = {'lista_tipos': tipos}
 
