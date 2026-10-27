@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Modelos | AI Footprint{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Modelos de inteligencia artificial</h1>
+    <p class="texto-secundario">
+        Explora los modelos y consulta su tipo y sus impactos ambientales.
+    </p>
+
+    <div class="grid">
+        {% for modelo in lista_modelos %}
+            <article class="tarjeta">
+                <span class="etiqueta">{{ modelo.tipo.nombre }}</span>
+                <h3>{{ modelo.nombre }}</h3>
+                <p><strong>Desarrollador:</strong> {{ modelo.desarrollador }}</p>
+                <p>{{ modelo.descripcion|truncatewords:24 }}</p>
+                <a href="{% url 'detalle_modelo' modelo.pk %}">
+                    Ver detalles →
+                </a>
+            </article>
+        {% empty %}
+            <p>Todavía no hay modelos registrados.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

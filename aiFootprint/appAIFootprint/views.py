@@ -6,9 +6,7 @@ from .models import ModeloIA, TipoModelo, ImpactoAmbiental
 
 # Devuelve el listado de modelos de IA
 def index_modelos(request):
-    modelos = get_list_or_404(
-        ModeloIA.objects.order_by('nombre')
-    )
+    modelos = ModeloIA.objects.order_by('nombre')
 
     context = {'lista_modelos': modelos}
 
