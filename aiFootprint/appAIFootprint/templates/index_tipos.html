@@ -11,7 +11,7 @@
     <div class="grid">
         {% for tipo in lista_tipos %}
             <article class="tarjeta">
-                <h3>{{ tipo.nombre }}</h3>
+                <h2>{{ tipo.nombre }}</h2>
                 <p>{{ tipo.descripcion|truncatewords:24 }}</p>
                 <p><strong>Modelos asociados:</strong> {{ tipo.modelos.count }}</p>
                 <a href="{% url 'detalle_tipo' tipo.pk %}">

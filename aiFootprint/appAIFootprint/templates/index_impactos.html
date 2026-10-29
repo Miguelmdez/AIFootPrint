@@ -11,7 +11,7 @@
     <div class="grid">
         {% for impacto in lista_impactos %}
             <article class="tarjeta">
-                <h3>{{ impacto.nombre }}</h3>
+                <h2>{{ impacto.nombre }}</h2>
                 <p>{{ impacto.descripcion|truncatewords:24 }}</p>
                 <p><strong>Modelos asociados:</strong> {{ impacto.modelos.count }}</p>
                 <a href="{% url 'detalle_impacto' impacto.pk %}">

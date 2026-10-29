@@ -12,7 +12,7 @@
         {% for modelo in lista_modelos %}
             <article class="tarjeta">
                 <span class="etiqueta">{{ modelo.tipo.nombre }}</span>
-                <h3>{{ modelo.nombre }}</h3>
+                <h2>{{ modelo.nombre }}</h2>
                 <p><strong>Desarrollador:</strong> {{ modelo.desarrollador }}</p>
                 <p>{{ modelo.descripcion|truncatewords:24 }}</p>
                 <a href="{% url 'detalle_modelo' modelo.pk %}">
