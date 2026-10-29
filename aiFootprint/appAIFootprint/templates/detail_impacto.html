@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ impacto.nombre }} | AI Footprint{% endblock %}
+
+{% block content %}
+<section class="tarjeta">
+    <h1>{{ impacto.nombre }}</h1>
+    <p>{{ impacto.descripcion }}</p>
+
+    <h2>Modelos asociados</h2>
+    {% if modelos %}
+        <div class="grid">
+            {% for modelo in modelos %}
+                <article class="tarjeta">
+                    <span class="etiqueta">{{ modelo.tipo.nombre }}</span>
+                    <h3>{{ modelo.nombre }}</h3>
+                    <p><strong>Desarrollador:</strong> {{ modelo.desarrollador }}</p>
+                    <a href="{% url 'detalle_modelo' modelo.pk %}">
+                        Ver detalles →
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Este impacto todavía no tiene modelos asociados.</p>
+    {% endif %}
+
+    <p>
+        <a href="{% url 'lista_impactos' %}">← Volver a los impactos</a>
+    </p>
+</section>
+{% endblock %}

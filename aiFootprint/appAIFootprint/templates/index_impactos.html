@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Impactos ambientales | AI Footprint{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Impactos ambientales</h1>
+    <p class="texto-secundario">
+        Explora los tipos de impacto ambiental asociados a la inteligencia artificial.
+    </p>
+
+    <div class="grid">
+        {% for impacto in lista_impactos %}
+            <article class="tarjeta">
+                <h3>{{ impacto.nombre }}</h3>
+                <p>{{ impacto.descripcion|truncatewords:24 }}</p>
+                <p><strong>Modelos asociados:</strong> {{ impacto.modelos.count }}</p>
+                <a href="{% url 'detalle_impacto' impacto.pk %}">
+                    Ver detalles →
+                </a>
+            </article>
+        {% empty %}
+            <p>Todavía no hay impactos registrados.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -58,9 +58,7 @@ def show_tipo(request, tipo_id):
 
 # Devuelve el listado de impactos ambientales
 def index_impactos(request):
-    impactos = get_list_or_404(
-        ImpactoAmbiental.objects.order_by('nombre')
-    )
+    impactos = ImpactoAmbiental.objects.order_by('nombre')
 
     context = {'lista_impactos': impactos}
 
