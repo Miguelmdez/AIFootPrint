@@ -7,7 +7,11 @@
     <p class="texto-secundario">
         Explora los tipos de impacto ambiental asociados a la inteligencia artificial.
     </p>
-
+    <h2>
+        <a href="{% url 'crear_impacto' %}">
+            + Registrar impacto ambiental
+        </a>
+    </h2>
     <div class="grid">
         {% for impacto in lista_impactos %}
             <article class="tarjeta">

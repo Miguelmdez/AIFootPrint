@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear impacto ambiental</title>
+</head>
+<body>
+
+    <h1>Registrar impacto</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Guardar impacto</button>
+    </form>
+
+</body>
+</html>

@@ -9,4 +9,8 @@ urlpatterns = [
     path('tipos/<int:tipo_id>/', views.show_tipo, name='detalle_tipo'),
     path('impactos/', views.index_impactos, name='lista_impactos'),
     path('impactos/<int:impacto_id>/', views.show_impacto, name='detalle_impacto'),
+    #Andoni
+    path('registrar-tipo-modelo/', views.crear_tipo, name='crear_tipo'),
+    path('registrar-impacto-ambiental/', views.crear_impacto, name='crear_impacto'),
+    path('registrar-modelo-ia/', views.crear_modelo, name='crear_modelo'),
 ]

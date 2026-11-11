@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, get_list_or_404
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 from .models import ModeloIA, TipoModelo, ImpactoAmbiental
+from .forms import TipoModeloForm, ImpactoAmbientalForm, ModeloIAForm
 
 
 # Devuelve el listado de modelos de IA
@@ -81,6 +81,51 @@ def show_impacto(request, impacto_id):
 
     return render(request, 'detail_impacto.html', context)
 
+#Andoni
+def crear_tipo(request):
+    if request.method == 'POST':
+        form = TipoModeloForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('lista_tipos')
+
+    else:
+        form = TipoModeloForm()
+
+    return render(request, 'crear_tipo.html', {
+        'form': form
+})
+
+def crear_impacto(request):
+    if request.method == 'POST':
+        form = ImpactoAmbientalForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('lista_impactos')
+
+    else:
+        form = ImpactoAmbientalForm()
+
+    return render(request, 'crear_impacto.html', {
+        'form': form
+})
+
+def crear_modelo(request):
+    if request.method == 'POST':
+        form = ModeloIAForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('lista_modelos')
+
+    else:
+        form = ModeloIAForm()
+
+    return render(request, 'crear_modelo.html', {
+        'form': form
+})
 
 # Devuelve la portada de AI Footprint
 def index(request):

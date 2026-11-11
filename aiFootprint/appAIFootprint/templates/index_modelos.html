@@ -7,7 +7,11 @@
     <p class="texto-secundario">
         Explora los modelos y consulta su tipo y sus impactos ambientales.
     </p>
-
+    <h2>
+        <a href="{% url 'crear_modelo' %}">
+            + Registrar modelo de IA
+        </a>
+    </h2>
     <div class="grid">
         {% for modelo in lista_modelos %}
             <article class="tarjeta">

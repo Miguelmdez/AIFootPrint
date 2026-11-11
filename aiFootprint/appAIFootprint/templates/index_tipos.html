@@ -7,7 +7,11 @@
     <p class="texto-secundario">
         Explora las categorías de inteligencia artificial y los modelos asociados.
     </p>
-
+    <h2>
+        <a href="{% url 'crear_tipo' %}">
+            + Registrar tipo de modelo
+        </a>
+    </h2>
     <div class="grid">
         {% for tipo in lista_tipos %}
             <article class="tarjeta">
