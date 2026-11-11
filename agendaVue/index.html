@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Agenda de contactos</title>
+	<meta name="description" content="Agenda de contactos hecha con Vue: consulta, añade y borra contactos con su nombre, email y teléfono.">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<header class="cabecera">
+		<h1>Agenda de contactos</h1>
+		<p>Guarda el nombre, el email y el teléfono de tus contactos.</p>
+	</header>
+
+	<main class="contenido">
+		<noscript>
+			<p class="aviso">Esta agenda necesita JavaScript activado para funcionar.</p>
+		</noscript>
+		<!-- Aquí Vue dibuja la agenda usando la plantilla "plantilla-agenda" -->
+		<div id="app"></div>
+	</main>
+
+	<footer class="pie">
+		<p>Práctica de Ingeniería Web · Entrega E4b</p>
+	</footer>
+
+	<!--
+		Plantilla de Vue. Va dentro de un <script type="text/x-template"> para que
+		el validador del W3C no revise las directivas de Vue (v-model, v-for, @click...),
+		que no son atributos HTML válidos. Vue la lee y la convierte en HTML normal.
+	-->
+	<script type="text/x-template" id="plantilla-agenda">
+		<div class="agenda">
+
+			<section class="tarjeta" aria-labelledby="titulo-nuevo">
+				<h2 id="titulo-nuevo">Nuevo contacto</h2>
+
+				<form class="formulario" novalidate @submit.prevent="guardarContacto">
+					<div class="campo">
+						<label for="nombre">Nombre</label>
+						<input id="nombre" type="text" v-model.trim="nuevo.nombre"
+							:class="{ 'campo-error': errores.nombre }"
+							autocomplete="name" maxlength="60" placeholder="Ej.: Ana López" required>
+						<p v-if="errores.nombre" class="mensaje-error">{{ errores.nombre }}</p>
+					</div>
+
+					<div class="campo">
+						<label for="email">Email</label>
+						<input id="email" type="email" v-model.trim="nuevo.email"
+							:class="{ 'campo-error': errores.email }"
+							autocomplete="email" maxlength="80" placeholder="Ej.: ana@ejemplo.com" required>
+						<p v-if="errores.email" class="mensaje-error">{{ errores.email }}</p>
+					</div>
+
+					<div class="campo">
+						<label for="telefono">Teléfono</label>
+						<input id="telefono" type="tel" v-model.trim="nuevo.telefono"
+							:class="{ 'campo-error': errores.telefono }"
+							autocomplete="tel" maxlength="20" placeholder="Ej.: 600 123 456" required>
+						<p v-if="errores.telefono" class="mensaje-error">{{ errores.telefono }}</p>
+					</div>
+
+					<button type="submit" class="boton boton-anadir" :disabled="!formularioRelleno">Añadir contacto</button>
+					<p v-if="mensaje" class="mensaje-ok" role="status">{{ mensaje }}</p>
+				</form>
+			</section>
+
+			<section class="tarjeta" aria-labelledby="titulo-lista">
+				<h2 id="titulo-lista">Mis contactos <span class="contador">({{ textoContador }})</span></h2>
+
+				<p v-if="contactos.length === 0" class="vacio">No hay contactos. Añade el primero con el formulario.</p>
+
+				<ul v-else class="lista-contactos">
+					<li v-for="(contacto, indice) in contactos" :key="contacto.id" class="contacto">
+						<div class="datos">
+							<span class="nombre">{{ contacto.nombre }}</span>
+							<a class="email" :href="'mailto:' + contacto.email">{{ contacto.email }}</a>
+							<a class="telefono" :href="enlaceTelefono(contacto.telefono)">{{ contacto.telefono }}</a>
+						</div>
+						<button type="button" class="boton boton-borrar"
+							:aria-label="'Borrar a ' + contacto.nombre"
+							@click="borrarContacto(indice)">Borrar</button>
+					</li>
+				</ul>
+			</section>
+
+		</div>
+	</script>
+
+	<script src="js/vue.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

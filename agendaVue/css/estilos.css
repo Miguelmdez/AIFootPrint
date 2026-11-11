@@ -1,0 +1,209 @@
+/* ===== Base ===== */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #1f2933;
+	background-color: #f2f4f7;
+}
+
+h1,
+h2 {
+	margin: 0;
+	line-height: 1.2;
+}
+
+a {
+	color: #1d4ed8;
+}
+
+/* ===== Cabecera y pie ===== */
+.cabecera {
+	padding: 32px 16px;
+	text-align: center;
+	color: #ffffff;
+	background-color: #1e3a8a;
+}
+
+.cabecera h1 {
+	font-size: 2rem;
+}
+
+.cabecera p {
+	margin: 8px 0 0;
+	color: #dbe4ff;
+}
+
+.pie {
+	padding: 24px 16px;
+	text-align: center;
+	font-size: 0.9rem;
+	color: #52606d;
+}
+
+/* ===== Contenido ===== */
+.contenido {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 24px 16px;
+}
+
+.agenda {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+	align-items: flex-start;
+}
+
+.tarjeta {
+	flex: 1 1 380px;
+	padding: 24px;
+	background-color: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.tarjeta h2 {
+	margin-bottom: 16px;
+	font-size: 1.3rem;
+	color: #1e3a8a;
+}
+
+.contador {
+	font-size: 1rem;
+	font-weight: normal;
+	color: #52606d;
+}
+
+/* ===== Formulario ===== */
+.campo {
+	margin-bottom: 16px;
+}
+
+.campo label {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: bold;
+}
+
+.campo input {
+	width: 100%;
+	padding: 10px 12px;
+	font: inherit;
+	border: 1px solid #cbd2d9;
+	border-radius: 8px;
+}
+
+.campo input:focus {
+	border-color: #1d4ed8;
+	outline: 2px solid #bfd0ff;
+}
+
+.campo input.campo-error {
+	border-color: #c62828;
+	background-color: #fff5f5;
+}
+
+.mensaje-error {
+	margin: 4px 0 0;
+	font-size: 0.875rem;
+	color: #c62828;
+}
+
+.mensaje-ok {
+	margin: 12px 0 0;
+	padding: 8px 12px;
+	color: #1b5e20;
+	background-color: #e8f5e9;
+	border-radius: 8px;
+}
+
+/* ===== Botones ===== */
+.boton {
+	padding: 10px 16px;
+	font: inherit;
+	font-weight: bold;
+	color: #ffffff;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.boton-anadir {
+	width: 100%;
+	background-color: #1d4ed8;
+}
+
+.boton-anadir:hover {
+	background-color: #1e40af;
+}
+
+.boton-anadir:disabled {
+	background-color: #9aa5b1;
+	cursor: not-allowed;
+}
+
+.boton-borrar {
+	padding: 6px 12px;
+	background-color: #c62828;
+}
+
+.boton-borrar:hover {
+	background-color: #8e1c1c;
+}
+
+/* ===== Lista de contactos ===== */
+.lista-contactos {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.contacto {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 0;
+	border-bottom: 1px solid #e4e7eb;
+}
+
+.contacto:last-child {
+	border-bottom: none;
+}
+
+.datos {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.datos .nombre {
+	font-weight: bold;
+}
+
+.datos a {
+	overflow-wrap: anywhere;
+}
+
+.vacio,
+.aviso {
+	color: #52606d;
+	font-style: italic;
+}
+
+/* ===== Móvil ===== */
+@media (max-width: 480px) {
+	.cabecera h1 {
+		font-size: 1.6rem;
+	}
+
+	.tarjeta {
+		padding: 16px;
+	}
+}
