@@ -6,6 +6,47 @@
 	<title>Agenda de contactos</title>
 	<meta name="description" content="Agenda de contactos hecha con Vue: consulta, añade y borra contactos con su nombre, email y teléfono.">
 	<link rel="stylesheet" href="css/estilos.css">
+
+	<!-- JSON-LD (web de datos): describe la aplicación con el vocabulario de schema.org -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebApplication",
+		"name": "Agenda de contactos",
+		"description": "Agenda de contactos hecha con Vue: consulta, añade y borra contactos con su nombre, email y teléfono.",
+		"applicationCategory": "UtilitiesApplication",
+		"operatingSystem": "Cualquiera con navegador web",
+		"browserRequirements": "Requiere JavaScript",
+		"inLanguage": "es",
+		"offers": {
+			"@type": "Offer",
+			"price": "0",
+			"priceCurrency": "EUR"
+		},
+		"author": {
+			"@type": "Organization",
+			"name": "Grupo IW-BI-04",
+			"member": [
+				{ "@type": "Person", "name": "Eneko" },
+				{ "@type": "Person", "name": "Jürgen" },
+				{ "@type": "Person", "name": "Miguel" },
+				{ "@type": "Person", "name": "Andoni" },
+				{ "@type": "Person", "name": "Cesar" }
+			]
+		}
+	}
+	</script>
+
+	<!-- JSON-LD con la lista de contactos: js/app.js lo actualiza al añadir o borrar -->
+	<script type="application/ld+json" id="ld-contactos">
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Contactos de la agenda",
+		"numberOfItems": 0,
+		"itemListElement": []
+	}
+	</script>
 </head>
 <body>
 	<header class="cabecera">
@@ -21,8 +62,16 @@
 		<div id="app"></div>
 	</main>
 
-	<footer class="pie">
-		<p>Práctica de Ingeniería Web · Entrega E4b</p>
+	<!-- RDFa: datos del grupo autor marcados con el vocabulario de schema.org -->
+	<footer class="pie" vocab="https://schema.org/" typeof="Organization">
+		<p>Hecho por <span property="name">Grupo IW-BI-04</span> · <span property="description">Práctica de Ingeniería Web, entrega E4b</span></p>
+		<p>Integrantes:
+			<span property="member" typeof="Person"><span property="name">Eneko</span></span>,
+			<span property="member" typeof="Person"><span property="name">Jürgen</span></span>,
+			<span property="member" typeof="Person"><span property="name">Miguel</span></span>,
+			<span property="member" typeof="Person"><span property="name">Andoni</span></span> y
+			<span property="member" typeof="Person"><span property="name">Cesar</span></span>
+		</p>
 	</footer>
 
 	<!--
@@ -71,12 +120,14 @@
 
 				<p v-if="contactos.length === 0" class="vacio">No hay contactos. Añade el primero con el formulario.</p>
 
+				<!-- Microdata: cada contacto se marca como una persona (schema.org/Person) -->
 				<ul v-else class="lista-contactos">
-					<li v-for="(contacto, indice) in contactos" :key="contacto.id" class="contacto">
+					<li v-for="(contacto, indice) in contactos" :key="contacto.id" class="contacto"
+						itemscope itemtype="https://schema.org/Person">
 						<div class="datos">
-							<span class="nombre">{{ contacto.nombre }}</span>
-							<a class="email" :href="'mailto:' + contacto.email">{{ contacto.email }}</a>
-							<a class="telefono" :href="enlaceTelefono(contacto.telefono)">{{ contacto.telefono }}</a>
+							<span class="nombre" itemprop="name">{{ contacto.nombre }}</span>
+							<a class="email" :href="'mailto:' + contacto.email"><span itemprop="email">{{ contacto.email }}</span></a>
+							<a class="telefono" :href="enlaceTelefono(contacto.telefono)"><span itemprop="telephone">{{ contacto.telefono }}</span></a>
 						</div>
 						<button type="button" class="boton boton-borrar"
 							:aria-label="'Borrar a ' + contacto.nombre"

@@ -89,10 +89,34 @@ var app = new Vue({
 		// Convierte "600 123 456" en "tel:600123456" para que el enlace llame desde el móvil
 		enlaceTelefono: function (telefono) {
 			return 'tel:' + telefono.replace(/\s/g, '');
+		},
+		// Rellena el bloque JSON-LD "ld-contactos" del <head> con la lista actual (schema.org/ItemList)
+		actualizarJsonLd: function () {
+			var datos = {
+				'@context': 'https://schema.org',
+				'@type': 'ItemList',
+				'name': 'Contactos de la agenda',
+				'numberOfItems': this.contactos.length,
+				'itemListElement': this.contactos.map(function (contacto, i) {
+					return {
+						'@type': 'ListItem',
+						'position': i + 1,
+						'item': {
+							'@type': 'Person',
+							'name': contacto.nombre,
+							'email': contacto.email,
+							'telephone': contacto.telefono
+						}
+					};
+				})
+			};
+			// El "<" se escribe como < para que ningún texto pueda cerrar el <script> antes de tiempo
+			document.getElementById('ld-contactos').textContent =
+				JSON.stringify(datos, null, 2).replace(/</g, '\\u003c');
 		}
 	},
 	watch: {
-		// Cada vez que cambia la lista (añadir o borrar) se guarda en el navegador
+		// Cada vez que cambia la lista (añadir o borrar) se guarda en el navegador y se actualiza el JSON-LD
 		contactos: {
 			handler: function (lista) {
 				try {
@@ -100,8 +124,13 @@ var app = new Vue({
 				} catch (e) {
 					// Si no se puede guardar, la agenda sigue funcionando sin guardar
 				}
+				this.actualizarJsonLd();
 			},
 			deep: true
 		}
+	},
+	// Al arrancar, genera el JSON-LD con los contactos iniciales
+	mounted: function () {
+		this.actualizarJsonLd();
 	}
 });
