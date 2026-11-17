@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Crear impacto ambiental</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block title %}Crear impacto ambiental · AI Footprint{% endblock %}
+
+{% block content %}
+<div class="tarjeta formulario-contenedor">
     <h1>Registrar impacto</h1>
 
-    <form method="POST">
+    <form method="POST" class="formulario">
         {% csrf_token %}
 
         {{ form.as_p }}
 
-        <button type="submit">Guardar impacto</button>
+        <div class="formulario-acciones">
+            <button type="submit" class="boton">Guardar impacto</button>
+            <a href="{% url 'lista_impactos' %}" class="texto-secundario">Cancelar</a>
+        </div>
     </form>
-
-</body>
-</html>
+</div>
+{% endblock %}

@@ -178,6 +178,87 @@ img.imagen-modelo {
     font-size: 0.9rem;
 }
 
+/* Estilos para formularios */
+.formulario-contenedor {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formulario-contenedor h1 {
+    color: var(--verde-oscuro);
+    margin-top: 0;
+}
+
+.formulario p {
+    margin-bottom: 18px;
+}
+
+.formulario label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: var(--verde-oscuro);
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario input[type="email"],
+.formulario input[type="url"],
+.formulario input[type="date"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--texto);
+    background: var(--fondo);
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: var(--verde);
+    background: var(--blanco);
+}
+
+.formulario input[type="file"] {
+    font-family: inherit;
+    color: var(--texto-secundario);
+}
+
+.formulario .helptext {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+    margin-top: 4px;
+}
+
+.formulario ul.errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 8px;
+    color: #b42318;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.formulario .boton {
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.formulario-acciones {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 24px;
+}
+
 @media (max-width: 600px) {
     .cabecera {
         padding: 18px 5%;

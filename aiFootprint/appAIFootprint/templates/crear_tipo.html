@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Crear tipo de modelo</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block title %}Crear tipo de modelo · AI Footprint{% endblock %}
+
+{% block content %}
+<div class="tarjeta formulario-contenedor">
     <h1>Registrar tipo de modelo</h1>
 
-    <form method="POST">
+    <form method="POST" class="formulario">
         {% csrf_token %}
 
         {{ form.as_p }}
 
-        <button type="submit">Guardar tipo de modelo</button>
+        <div class="formulario-acciones">
+            <button type="submit" class="boton">Guardar tipo de modelo</button>
+            <a href="{% url 'lista_tipos' %}" class="texto-secundario">Cancelar</a>
+        </div>
     </form>
-
-</body>
-</html>
+</div>
+{% endblock %}

@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Crear modelo IA</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block title %}Crear modelo IA · AI Footprint{% endblock %}
+
+{% block content %}
+<div class="tarjeta formulario-contenedor">
     <h1>Registrar modelo de IA</h1>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data" class="formulario">
         {% csrf_token %}
 
         {{ form.as_p }}
 
-        <button type="submit">Guardar modelo</button>
+        <div class="formulario-acciones">
+            <button type="submit" class="boton">Guardar modelo</button>
+            <a href="{% url 'lista_modelos' %}" class="texto-secundario">Cancelar</a>
+        </div>
     </form>
-
-</body>
-</html>
+</div>
+{% endblock %}
