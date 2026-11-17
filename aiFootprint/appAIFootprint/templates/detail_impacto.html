@@ -11,7 +11,9 @@
         <div class="grid">
             {% for modelo in modelos %}
                 <article class="tarjeta">
-                    <span class="etiqueta">{{ modelo.tipo.nombre }}</span>
+                    <a href="{% url 'detalle_tipo' modelo.tipo.pk %}" class="etiqueta">
+                        {{ modelo.tipo.nombre }}
+                    </a>
                     <h3>{{ modelo.nombre }}</h3>
                     <p><strong>Desarrollador:</strong> {{ modelo.desarrollador }}</p>
                     <a href="{% url 'detalle_modelo' modelo.pk %}">

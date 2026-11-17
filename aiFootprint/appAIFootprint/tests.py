@@ -50,8 +50,20 @@ class ModeloViewsTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'detail_modelo.html')
+        self.assertContains(response, '<strong>Tipo:</strong>', html=True)
         self.assertContains(response, self.tipo.nombre)
         self.assertContains(response, self.impacto.nombre)
+
+    def test_etiqueta_del_modelo_destacado_enlaza_al_detalle_del_tipo(self):
+        response = self.client.get(reverse('index'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(
+            response,
+            f'<a href="{reverse("detalle_tipo", args=[self.tipo.pk])}" '
+            f'class="etiqueta">{self.tipo.nombre}</a>',
+            html=True,
+        )
 
 
 class TipoModeloViewsTests(TestCase):

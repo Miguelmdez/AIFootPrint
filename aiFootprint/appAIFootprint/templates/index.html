@@ -36,9 +36,9 @@
                 class="imagen-modelo"
                 >
 
-                <span class="etiqueta">
+                <a href="{% url 'detalle_tipo' modelo.tipo.pk %}" class="etiqueta">
                     {{ modelo.tipo.nombre }}
-                </span>
+                </a>
 
                 <h3>{{ modelo.nombre }}</h3>
                 <p>{{ modelo.desarrollador }}</p>
