@@ -12,7 +12,13 @@
             + Registrar modelo de IA
         </a>
     </h2>
-    <div class="grid">
+
+    <!-- Buscador de modelos en cliente -->
+    <div style="margin: 15px 0;">
+        <input type="text" id="buscador" placeholder="Escribe para filtrar modelos..." style="padding: 8px; width: 280px;">
+    </div>
+
+    <div class="grid" id="grid-modelos">
         {% for modelo in lista_modelos %}
             <article class="tarjeta">
                 <a href="{% url 'detalle_tipo' modelo.tipo.pk %}" class="etiqueta">
@@ -30,4 +36,18 @@
         {% endfor %}
     </div>
 </section>
+
+<script>
+    const buscador = document.getElementById('buscador');
+    const tarjetas = document.querySelectorAll('#grid-modelos .tarjeta');
+
+    buscador.addEventListener('input', function() {
+        const filtro = buscador.value.toLowerCase();
+
+        tarjetas.forEach(function(tarjeta) {
+            const texto = tarjeta.textContent.toLowerCase();
+            tarjeta.style.display = texto.includes(filtro) ? '' : 'none';
+        });
+    });
+</script>
 {% endblock %}
