@@ -7,6 +7,28 @@
 	<meta name="description" content="Agenda de contactos hecha con Vue: consulta, añade y borra contactos con su nombre, email y teléfono.">
 	<link rel="stylesheet" href="css/estilos.css">
 
+	<!--
+		Open Graph (Facebook, WhatsApp, LinkedIn...): datos de la tarjeta que se ve al compartir el enlace.
+		Las URL tienen que ser absolutas; usan la dirección prevista en Netlify (se confirma en la parte 4).
+	-->
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Agenda de contactos">
+	<meta property="og:title" content="Agenda de contactos">
+	<meta property="og:description" content="Agenda de contactos hecha con Vue: consulta, añade y borra contactos con su nombre, email y teléfono.">
+	<meta property="og:url" content="https://agenda-iw-bi-05.netlify.app/">
+	<meta property="og:image" content="https://agenda-iw-bi-05.netlify.app/img/og-image.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Agenda de contactos: lista con nombre, email y teléfono de cada contacto">
+	<meta property="og:locale" content="es_ES">
+
+	<!-- Twitter Card: tarjeta grande con imagen al compartir en Twitter / X -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Agenda de contactos">
+	<meta name="twitter:description" content="Agenda de contactos hecha con Vue: consulta, añade y borra contactos con su nombre, email y teléfono.">
+	<meta name="twitter:image" content="https://agenda-iw-bi-05.netlify.app/img/og-image.png">
+	<meta name="twitter:image:alt" content="Agenda de contactos: lista con nombre, email y teléfono de cada contacto">
+
 	<!-- JSON-LD (web de datos): describe la aplicación con el vocabulario de schema.org -->
 	<script type="application/ld+json">
 	{
@@ -25,7 +47,7 @@
 		},
 		"author": {
 			"@type": "Organization",
-			"name": "Grupo IW-BI-04",
+			"name": "Grupo IW-BI-05",
 			"member": [
 				{ "@type": "Person", "name": "Eneko" },
 				{ "@type": "Person", "name": "Jürgen" },
@@ -60,11 +82,18 @@
 		</noscript>
 		<!-- Aquí Vue dibuja la agenda usando la plantilla "plantilla-agenda" -->
 		<div id="app"></div>
+
+		<!-- Botones para compartir: enlaces normales a cada red social, sin scripts de terceros -->
+		<section class="compartir" aria-labelledby="titulo-compartir">
+			<h2 id="titulo-compartir">Comparte la agenda</h2>
+			<a class="boton boton-social boton-twitter" href="https://twitter.com/intent/tweet?text=Agenda%20de%20contactos%20hecha%20con%20Vue%20por%20el%20Grupo%20IW-BI-05&amp;url=https%3A%2F%2Fagenda-iw-bi-05.netlify.app%2F" target="_blank" rel="noopener noreferrer">Compartir en Twitter / X</a>
+			<a class="boton boton-social boton-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fagenda-iw-bi-05.netlify.app%2F" target="_blank" rel="noopener noreferrer">Compartir en Facebook</a>
+		</section>
 	</main>
 
 	<!-- RDFa: datos del grupo autor marcados con el vocabulario de schema.org -->
 	<footer class="pie" vocab="https://schema.org/" typeof="Organization">
-		<p>Hecho por <span property="name">Grupo IW-BI-04</span> · <span property="description">Práctica de Ingeniería Web, entrega E4b</span></p>
+		<p>Hecho por <span property="name">Grupo IW-BI-05</span> · <span property="description">Práctica de Ingeniería Web, entrega E4b</span></p>
 		<p>Integrantes:
 			<span property="member" typeof="Person"><span property="name">Eneko</span></span>,
 			<span property="member" typeof="Person"><span property="name">Jürgen</span></span>,

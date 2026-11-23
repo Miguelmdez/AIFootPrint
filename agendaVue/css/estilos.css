@@ -197,6 +197,48 @@ a {
 	font-style: italic;
 }
 
+/* ===== Compartir en redes sociales ===== */
+.compartir {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
+	margin-top: 24px;
+	padding: 24px;
+	background-color: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.compartir h2 {
+	width: 100%;
+	text-align: center;
+	font-size: 1.3rem;
+	color: #1e3a8a;
+}
+
+.boton-social {
+	display: inline-block;
+	text-decoration: none;
+}
+
+.boton-twitter {
+	background-color: #000000;
+}
+
+.boton-twitter:hover {
+	background-color: #333333;
+}
+
+.boton-facebook {
+	background-color: #1464d2;
+}
+
+.boton-facebook:hover {
+	background-color: #0d4fa8;
+}
+
 /* ===== Móvil ===== */
 @media (max-width: 480px) {
 	.cabecera h1 {
