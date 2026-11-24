@@ -490,4 +490,4 @@ tipos de modelo, impactos ambientales, modelos y sus relaciones:
 `aiFootprint/appAIFootprint/fixtures/initial_data.json`.
 
 Desde la carpeta del proyecto Django (`aiFootprint`), ejecuta:
-    python manage.py loaddata
+    python manage.py loaddata initial_data
