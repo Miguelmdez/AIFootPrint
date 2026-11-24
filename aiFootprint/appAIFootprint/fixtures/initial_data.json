@@ -1,0 +1,195 @@
+[
+  {
+    "model": "appAIFootprint.tipomodelo",
+    "pk": 1,
+    "fields": {
+      "nombre": "Modelos de lenguaje",
+      "descripcion": "Modelos de inteligencia artificial capaces de comprender y generar texto."
+    }
+  },
+  {
+    "model": "appAIFootprint.tipomodelo",
+    "pk": 2,
+    "fields": {
+      "nombre": "Generación de imágenes",
+      "descripcion": "Modelos que generan imágenes a partir de descripciones de texto."
+    }
+  },
+  {
+    "model": "appAIFootprint.tipomodelo",
+    "pk": 3,
+    "fields": {
+      "nombre": "Reconocimiento de voz",
+      "descripcion": "Modelos que procesan audio y convierten la voz en texto."
+    }
+  },
+  {
+    "model": "appAIFootprint.tipomodelo",
+    "pk": 4,
+    "fields": {
+      "nombre": "Modelos multimodales",
+      "descripcion": "Modelos que pueden procesar diferentes tipos de información, como texto, imágenes y audio."
+    }
+  },
+  {
+    "model": "appAIFootprint.impactoambiental",
+    "pk": 1,
+    "fields": {
+      "nombre": "Consumo energético",
+      "descripcion": "Electricidad necesaria para entrenar y ejecutar modelos de inteligencia artificial."
+    }
+  },
+  {
+    "model": "appAIFootprint.impactoambiental",
+    "pk": 2,
+    "fields": {
+      "nombre": "Emisiones de CO2",
+      "descripcion": "Emisiones de gases de efecto invernadero asociadas al consumo energético."
+    }
+  },
+  {
+    "model": "appAIFootprint.impactoambiental",
+    "pk": 3,
+    "fields": {
+      "nombre": "Consumo de agua",
+      "descripcion": "Agua utilizada directa o indirectamente para refrigerar los centros de datos."
+    }
+  },
+  {
+    "model": "appAIFootprint.impactoambiental",
+    "pk": 4,
+    "fields": {
+      "nombre": "Uso de materias primas",
+      "descripcion": "Recursos naturales necesarios para fabricar los componentes electrónicos."
+    }
+  },
+  {
+    "model": "appAIFootprint.impactoambiental",
+    "pk": 5,
+    "fields": {
+      "nombre": "Residuos electrónicos",
+      "descripcion": "Residuos generados por equipos informáticos y componentes electrónicos al final de su vida útil."
+    }
+  },
+  {
+    "model": "appAIFootprint.modeloia",
+    "pk": 1,
+    "fields": {
+      "nombre": "GPT-4o",
+      "desarrollador": "OpenAI",
+      "descripcion": "Modelo multimodal capaz de comprender y generar texto, procesar imágenes y trabajar con audio.",
+      "tipo": 1,
+      "impactos": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "appAIFootprint.modeloia",
+    "pk": 2,
+    "fields": {
+      "nombre": "Claude",
+      "desarrollador": "Anthropic",
+      "descripcion": "Familia de modelos de inteligencia artificial orientados a la comprensión y generación de texto.",
+      "tipo": 1,
+      "impactos": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "appAIFootprint.modeloia",
+    "pk": 3,
+    "fields": {
+      "nombre": "Llama",
+      "desarrollador": "Meta",
+      "descripcion": "Familia de modelos de lenguaje que puede utilizarse en diferentes aplicaciones.",
+      "tipo": 1,
+      "impactos": [
+        1,
+        2,
+        4
+      ]
+    }
+  },
+  {
+    "model": "appAIFootprint.modeloia",
+    "pk": 4,
+    "fields": {
+      "nombre": "DALL-E",
+      "desarrollador": "OpenAI",
+      "descripcion": "Modelo de inteligencia artificial que genera imágenes a partir de instrucciones escritas.",
+      "tipo": 2,
+      "impactos": [
+        1,
+        2,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appAIFootprint.modeloia",
+    "pk": 5,
+    "fields": {
+      "nombre": "Stable Diffusion",
+      "desarrollador": "Stability AI",
+      "descripcion": "Modelo de generación de imágenes a partir de descripciones de texto.",
+      "tipo": 2,
+      "impactos": [
+        1,
+        2,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "appAIFootprint.modeloia",
+    "pk": 6,
+    "fields": {
+      "nombre": "Whisper",
+      "desarrollador": "OpenAI",
+      "descripcion": "Modelo de reconocimiento automático de voz capaz de transcribir audio.",
+      "tipo": 3,
+      "impactos": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "model": "appAIFootprint.modeloia",
+    "pk": 7,
+    "fields": {
+      "nombre": "Gemini",
+      "desarrollador": "Google",
+      "descripcion": "Familia de modelos multimodales que trabaja con distintos tipos de información.",
+      "tipo": 4,
+      "impactos": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "appAIFootprint.modeloia",
+    "pk": 8,
+    "fields": {
+      "nombre": "DeepSeek",
+      "desarrollador": "DeepSeek",
+      "descripcion": "Familia de modelos de inteligencia artificial orientados al razonamiento y la generación de texto.",
+      "tipo": 1,
+      "impactos": [
+        1,
+        2,
+        4
+      ]
+    }
+  }
+]
