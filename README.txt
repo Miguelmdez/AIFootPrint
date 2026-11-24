@@ -482,3 +482,12 @@ Importante: ejecuta estos comandos una sola vez sobre una base de datos vacía. 
 *NOTA: IMAGENES CREADAS POR IA GENERATIVA. USER: admin, PASSWORD: admin
 
 REPO: https://github.com/Miguelmdez/AIFootPrint
+Carga de datos iniciales
+------------------------
+
+La aplicación `appAIFootprint` incluye una fixture con los registros actuales de
+tipos de modelo, impactos ambientales, modelos y sus relaciones:
+`aiFootprint/appAIFootprint/fixtures/initial_data.json`.
+
+Desde la carpeta del proyecto Django (`aiFootprint`), ejecuta:
+    python manage.py loaddata
