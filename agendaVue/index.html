@@ -36,6 +36,8 @@
 		"@type": "WebApplication",
 		"name": "Agenda de contactos",
 		"description": "Agenda de contactos hecha con Vue: consulta, añade y borra contactos con su nombre, email y teléfono.",
+		"url": "https://agenda-iw-bi-05.netlify.app/",
+		"image": "https://agenda-iw-bi-05.netlify.app/img/og-image.png",
 		"applicationCategory": "UtilitiesApplication",
 		"operatingSystem": "Cualquiera con navegador web",
 		"browserRequirements": "Requiere JavaScript",
@@ -170,5 +172,9 @@
 
 	<script src="js/vue.js"></script>
 	<script src="js/app.js"></script>
-</body>
-</html>
+
+	<!--
+		</body> y </html> se omiten a propósito: en HTML5 sus etiquetas de cierre son opcionales.
+		Netlify añade al final del archivo un script propio (su insignia, obligatoria en el plan gratuito);
+		sin estos cierres ese script queda dentro del <body> y la página publicada sigue pasando la validación del W3C.
+	-->
