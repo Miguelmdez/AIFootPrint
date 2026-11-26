@@ -31,7 +31,7 @@
         {% for modelo in modelos_destacados %}
             <article class="tarjeta">
                 <img
-                src="{% static 'images/' %}{{ modelo.nombre }}.png"
+                src="{% static 'images/' %}{{ modelo.nombre|lower }}.png"
                 alt="Imagen de {{ modelo.nombre }}"
                 class="imagen-modelo"
                 >
