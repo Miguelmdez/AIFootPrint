@@ -9,7 +9,7 @@
     <form method="POST" enctype="multipart/form-data" class="formulario">
         {% csrf_token %}
 
-        {{ form.as_p }}
+        {{ form.as_div }}
 
         <div class="formulario-acciones">
             <button type="submit" class="boton">Guardar modelo</button>
