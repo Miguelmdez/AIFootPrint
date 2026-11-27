@@ -6,7 +6,7 @@
 <div class="tarjeta formulario-contenedor">
     <h1>Registrar modelo de IA</h1>
 
-    <form method="POST" enctype="multipart/form-data" class="formulario">
+    <form method="POST" class="formulario">
         {% csrf_token %}
 
         {{ form.as_div }}
